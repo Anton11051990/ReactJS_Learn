@@ -1,11 +1,10 @@
 import "./App.css";
-import Counter from "./Counter";
 
-const Message = (props) => {
+const Message = () => {
+  console.log();
   return (
     <div className="box">
-      <h1 className="text">I am: {props.name}</h1>
-      <Counter />
+      <h1 className="text">I am:</h1>
     </div>
   );
 };
