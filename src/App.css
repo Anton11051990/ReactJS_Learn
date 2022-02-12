@@ -49,3 +49,13 @@
   text-align: center;
   color: black;
 }
+
+.counter {
+  text-align: center;
+  color: black;
+}
+
+.counter-button {
+  border: 1px solid black;
+  border-radius: 10px;
+}
