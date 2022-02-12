@@ -5,6 +5,21 @@ import Forma from "./Forma";
 
 const myName = "Anton";
 
+// const message = [
+//   {
+//     text: "Hi",
+//     autor: "bot",
+//   },
+//   {
+//     text: "Как дела",
+//     autor: "I am",
+//   },
+//   {
+//     text: "Хорошо",
+//     autor: "bot",
+//   },
+// ];
+
 const App = () => {
   return (
     <div className="App">
