@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.box {
+  border: 1px solid black;
+  background-color: azure;
+  border-radius: 10px;
+  height: 400px;
+  width: 350px;
+}
+
+.text {
+  text-align: center;
+  color: black;
+}

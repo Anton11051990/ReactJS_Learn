@@ -1,4 +1,4 @@
-import "./Message.css";
+import "./App.css";
 
 const Message = (props) => {
   return (
