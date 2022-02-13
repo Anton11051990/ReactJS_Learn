@@ -24,10 +24,6 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,26 +33,18 @@
   }
 }
 
-.box {
-  border: 1px solid black;
+.message-value {
+  color: black;
+}
 
+.item {
+  border: 1px solid black;
+  width: 400px;
+  height: 500px;
+  background-color: aliceblue;
   border-radius: 10px;
-  height: 400px;
-  width: 350px;
-  position: relative;
 }
 
 .text {
-  text-align: center;
   color: black;
-}
-
-.counter {
-  text-align: center;
-  color: black;
-}
-
-.counter-button {
-  border: 1px solid black;
-  border-radius: 10px;
 }
