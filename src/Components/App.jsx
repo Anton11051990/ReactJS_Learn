@@ -1,6 +1,8 @@
 import logo from "../logo.svg";
 import "../App.css";
-import MessageList from "./MessageList";
+import "./messageList/MessageList.css";
+import MessageList from "./messageList/MessageList";
+import ChatList from "./chatList/ChatList";
 
 function App() {
   return (
@@ -8,6 +10,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <div className="item">
+          <ChatList />
           <MessageList />
         </div>
       </header>

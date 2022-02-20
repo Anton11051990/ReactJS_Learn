@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 @keyframes App-logo-spin {
@@ -35,48 +34,15 @@
 
 .item {
   border: 1px solid black;
-  width: 400px;
+  width: 600px;
   height: 500px;
   background-color: aliceblue;
   border-radius: 10px;
-}
-
-.itemBox {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  height: 400px;
-}
-
-.text {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 19px;
-  line-height: 17px;
-  color: #5d5d5d;
-  padding-bottom: 10px;
-  margin-right: 10px;
-}
-
-.author {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 17px;
-  color: #5d5d5d;
-}
-
-.li {
-  padding: 10px;
   display: flex;
 }
 
-.input-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 400px;
+.chat-list-box {
+  border: 1px solid black;
+  height: auto;
+  width: 300px;
 }

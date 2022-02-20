@@ -1,0 +1,52 @@
+.box-chat {
+  width: 400px;
+}
+
+.item-Box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 400px;
+}
+
+.input-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
+
+.li {
+  padding: 10px;
+  display: flex;
+}
+
+.text {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 17px;
+  color: #5d5d5d;
+  padding-bottom: 10px;
+  margin-right: 10px;
+}
+
+.author {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5d5d5d;
+}
+
+.timer {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #5d5d5d;
+}

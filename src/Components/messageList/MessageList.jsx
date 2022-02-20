@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { Fab, TextField } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
-
-import "../App.css";
+import { Message } from "./message/message";
 import Send from "@mui/icons-material/Send";
 
 const MessageList = () => {
@@ -31,33 +29,27 @@ const MessageList = () => {
     return () => clearInterval(timer);
   }, [messages]);
 
-  const arryMessages = messages.map((item) => {
-    return (
-      <div className="li" key={item.id}>
-        <div className="text">{item.value}</div>
-        <div className="author">{item.author}</div>
-      </div>
-    );
-  });
-
   return (
     <>
-      <>
-        <div className="itemBox">{arryMessages}</div>
-      </>
-
-      <div className="input-box">
-        <TextField
-          style={{ margin: "20px" }}
-          value={value}
-          id="outlined-basic"
-          label="Введите сообщение ..."
-          variant="outlined"
-          onChange={(e) => setValue(e.target.value)}
-        />
-        <Fab color="primary" onClick={handleClickMessag} endIcon={<SendIcon />}>
-          <Send />
-        </Fab>
+      <div className="box-chat">
+        <div className="item-Box">
+          {messages.map((message, id) => (
+            <Message key={id} message={message} />
+          ))}
+        </div>
+        <div className="input-box">
+          <TextField
+            style={{ margin: "20px" }}
+            value={value}
+            id="outlined-basic"
+            label="Введите сообщение ..."
+            variant="outlined"
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <Fab color="primary" onClick={handleClickMessag}>
+            <Send />
+          </Fab>
+        </div>
       </div>
     </>
   );
