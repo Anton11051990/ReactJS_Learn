@@ -1,64 +1,63 @@
 import { useEffect, useState } from "react";
+import { Fab, TextField } from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
 
 import "../App.css";
+import Send from "@mui/icons-material/Send";
 
 const MessageList = () => {
-  const [value, setValue] = useState(""); // Состояние инпута
+  const [value, setValue] = useState("");
   const [messages, setMessages] = useState([
-    // Состояние Сообщения
-    { id: 1, value: "Hi", aftor: "User" },
-    { id: 2, value: "React", aftor: "bot" },
+    { id: 1, value: "Hi", author: "User" },
+    { id: 2, value: "React", author: "bot" },
   ]);
-  // Функция в которой сохраняется введённое значение пользователем
   const handleClickMessag = () => {
-    //провверка на запрет отправки пустого сообщения, если пользователь ввёл значение =>
-    //записать в состояние под именем пользователя
     if (value) {
-      //обработка стейта
-      setMessages((state) => [...state, { value, aftor: "User" }]);
-      //очистка инпута после отправки
+      setMessages((state) => [...state, { value, author: "User" }]);
       setValue("");
     }
   };
-  //проверка на то кто ввёл сообщение + задержка времени между отправкой сообщения от бота
   useEffect(() => {
     const lastMessag = messages[messages.length - 1];
-    let taimer = null;
-    if (lastMessag?.aftor === "User") {
-      taimer = setTimeout(() => {
+    let timer = null;
+    if (lastMessag?.author === "User") {
+      timer = setTimeout(() => {
         setMessages((state) => [
           ...state,
-          { value: "Hello i am bot", aftor: "bot" },
+          { value: "Hello i am bot", author: "bot" },
         ]);
       }, 500);
     }
-    return () => clearInterval(taimer);
+    return () => clearInterval(timer);
   }, [messages]);
 
-  // Переменная в которой происходит перебор массива объектов при помощи метода map и его отрисовка
-  const arrayItemMessag = messages.map((item) => {
+  const arryMessages = messages.map((item) => {
     return (
-      <div className="message-value" key={item.id}>
-        <p className="text">
-          {item.aftor}:{item.value}
-        </p>
+      <div className="li" key={item.id}>
+        <div className="text">{item.value}</div>
+        <div className="author">{item.author}</div>
       </div>
     );
   });
+
   return (
     <>
-      {/* Рендерит переменную содержащюю массив из элементов */}
-      <div>{arrayItemMessag}</div>
-      <div>
-        {/* Отображает введёное сообщение */}
-        <input
+      <>
+        <div className="itemBox">{arryMessages}</div>
+      </>
+
+      <div className="input-box">
+        <TextField
+          style={{ margin: "20px" }}
           value={value}
+          id="outlined-basic"
+          label="Введите сообщение ..."
+          variant="outlined"
           onChange={(e) => setValue(e.target.value)}
-          placeholder="Введите сообщение..."
         />
-        {/* Отправка сообщения вызывает функцию которая 
-        отображает ответ пользователя */}
-        <button onClick={handleClickMessag}>Push</button>
+        <Fab color="primary" onClick={handleClickMessag} endIcon={<SendIcon />}>
+          <Send />
+        </Fab>
       </div>
     </>
   );
