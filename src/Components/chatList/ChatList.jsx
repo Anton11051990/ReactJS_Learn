@@ -1,5 +1,6 @@
 import { List, ListItem, ListItemText } from "@mui/material";
 import { useState } from "react";
+import "./chatStyle.css";
 
 const ChatList = () => {
   const [chats] = useState([
@@ -18,7 +19,7 @@ const ChatList = () => {
     );
   });
 
-  return <List>{arryChatsList}</List>;
+  return <List className="box">{arryChatsList}</List>;
 };
 
 export default ChatList;
