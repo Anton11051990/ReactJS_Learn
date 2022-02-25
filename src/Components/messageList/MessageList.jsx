@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Fab, TextField } from "@mui/material";
 import { Message } from "./message/message";
 import Send from "@mui/icons-material/Send";
@@ -9,7 +9,7 @@ const MessageList = () => {
     { id: 1, value: "Hi", author: "User" },
     { id: 2, value: "React", author: "bot" },
   ]);
-  const handleClickMessag = () => {
+  const handleClickMessage = () => {
     if (value) {
       setMessages((state) => [...state, { value, author: "User" }]);
       setValue("");
@@ -46,7 +46,7 @@ const MessageList = () => {
             variant="outlined"
             onChange={(e) => setValue(e.target.value)}
           />
-          <Fab color="primary" onClick={handleClickMessag}>
+          <Fab color="primary" onClick={handleClickMessage}>
             <Send />
           </Fab>
         </div>
