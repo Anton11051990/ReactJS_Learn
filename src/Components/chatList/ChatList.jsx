@@ -1,5 +1,7 @@
 import { List, ListItem, ListItemText } from "@mui/material";
 import React, { useState } from "react";
+import "../messageList/MessageList.css";
+
 import "./chatStyle.css";
 
 const ChatList = () => {
@@ -9,18 +11,20 @@ const ChatList = () => {
     { id: 447, title: "Room3" },
   ]);
 
-  const airyChatsList = chats.map((item) => {
-    return (
-      <ListItem key={item.id}>
-        <div>
-          <ListItemText primary={item.title} />
-        </div>
-      </ListItem>
-    );
-
-  });
-
-  return <List className="box">{airyChatsList}</List>;
+  return (
+    <>
+      <List
+        className="box"
+        sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+      >
+        <ListItem className="room">
+          {chats.map((item) => {
+            return <ListItemText key={item.id}>{item.title}</ListItemText>;
+          })}
+        </ListItem>
+      </List>
+    </>
+  );
 };
 
 export default ChatList;

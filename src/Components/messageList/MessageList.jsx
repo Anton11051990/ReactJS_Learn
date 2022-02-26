@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Fab, TextField } from "@mui/material";
 import { Message } from "./message/message";
 import Send from "@mui/icons-material/Send";
+import ChatList from "../chatList/ChatList";
 
 const MessageList = () => {
   const [value, setValue] = useState("");
@@ -32,23 +33,26 @@ const MessageList = () => {
   return (
     <>
       <div className="box-chat">
-        <div className="item-Box">
-          {messages.map((message, id) => (
-            <Message key={id} message={message} />
-          ))}
-        </div>
-        <div className="input-box">
-          <TextField
-            style={{ margin: "20px" }}
-            value={value}
-            id="outlined-basic"
-            label="Введите сообщение ..."
-            variant="outlined"
-            onChange={(e) => setValue(e.target.value)}
-          />
-          <Fab color="primary" onClick={handleClickMessage}>
-            <Send />
-          </Fab>
+        <ChatList />
+        <div className="chat">
+          <div className="item-Box">
+            {messages.map((message, id) => (
+              <Message key={id} message={message} />
+            ))}
+          </div>
+          <div className="input-box">
+            <TextField
+              style={{ margin: "20px" }}
+              value={value}
+              id="outlined-basic"
+              label="Введите сообщение ..."
+              variant="outlined"
+              onChange={(e) => setValue(e.target.value)}
+            />
+            <Fab color="primary" onClick={handleClickMessage}>
+              <Send />
+            </Fab>
+          </div>
         </div>
       </div>
     </>
