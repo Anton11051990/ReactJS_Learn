@@ -1,22 +1,15 @@
 import { createStore, combineReducers } from "redux";
-import { ProfileReducer } from "./reducer";
+import { profileReducer } from "./profile";
+import { conversationsReducer } from "./conversations";
+import { messagesReducer } from "./messages";
 
 
-const reducer = (state = { count: 23 }, action) => {
-   switch (action.type) {
-     case "INCREMENT":
-       return { ...state, count: state.count + 1 };
-     case "DECREMENT":
-       return { ...state, count: state.count - 1 };
-     default:
-       return state;
-   }
- };
- 
- export const store = createStore(
+export const store = createStore(
    combineReducers({
-     counter: reducer,
-     profile: ProfileReducer
-   })
- );
- 
+      profile: profileReducer,
+      conversations: conversationsReducer,
+      messages: messagesReducer,
+   }),
+   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
