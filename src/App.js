@@ -1,42 +1,52 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { ListItemIcon } from "@mui/material";
-import { AccountCircle, HighlightOff } from "@mui/icons-material";
-import { Link } from "react-router-dom";
-import "./App.css";
+import React, {
+   useEffect,
+   useState,
+} from 'react';
+import './App.css';
+import { Message } from './Messages';
 
-export default function App() {
-  const count = useSelector((state) => state.counter.count);
-  const profile = useSelector((state) => state.profile);
-  const dispatch = useDispatch();
 
-  return (
-    <div className={"profile-box"}>
-      <div className={"App"}>
-        <Link className={"close-prof"} to="/chat">
-          <ListItemIcon>
-            <HighlightOff className={"icon"} />
-          </ListItemIcon>
-        </Link>
-        <ListItemIcon>
-          <AccountCircle fontSize="large" className={"icon"} />
-        </ListItemIcon>
-        <h1 className={"prof-text"}>Name: {profile.name} </h1>
-        <h1 className={"prof-text"}>Country: {profile.country} </h1>
-        <h1 className={"prof-text"}>Age: {count} </h1>
-        <button
-          className={"but-age"}
-          onClick={() => dispatch({ type: "INCREMENT" })}
-        >
-          increment age
-        </button>
-        <button
-          className={"but-age"}
-          onClick={() => dispatch({ type: "DECREMENT" })}
-        >
-          decrement age
-        </button>
+export function App(props) {
+   const [messageList, setMessageList] = useState([
+      { author: "Bot", message: "Hello !" },
+      { author: "SuperBot", message: "Hello World!" }
+   ]);
+   const [inputValue, setInputValue] = useState("");
+
+
+
+   useEffect(() => {
+      console.log("useEffect");
+      const i = [messageList.length - 1];
+
+      if (messageList[i].author === `You`) {
+         setTimeout(() => {
+            setMessageList(messageList => [...messageList, messageList = { author: `Admin`, message: `hi` }]);
+            console.log("useEffect123");
+         }, 1500);
+      }
+   }, [messageList]);
+
+   const cb = () => {
+      setMessageList(messageList => [...messageList, messageList = { author: `You`, message: `${inputValue}` }]);
+      setInputValue('');
+   };
+
+
+   return <div className="App">
+      {messageList.map((message) => <h1>{`author: ${message.author} message: ${message.message}`}</h1>)}
+      <div>
+         <input
+            placeholder="input"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+         />
+         <button onClick={cb}>
+            send
+         </button>
       </div>
-    </div>
-  );
+      <Message nam={props.author}></Message>
+   </div >;
 }
+
+

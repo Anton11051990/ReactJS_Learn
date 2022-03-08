@@ -9,7 +9,7 @@ export function HomePage() {
         <div className={"home-padge"}>
           <h1>Домашная страница</h1>
           <div className={"chat-link"}>
-            <Link to="/chat">-- Чат --</Link>
+            <Link to="/chat">-- Чаты --</Link>
           </div>
         </div>
       </Route>
