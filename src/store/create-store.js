@@ -3,6 +3,8 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { profileReducer } from "./profile";
+import { getGistsApi, searchGistsByUserNameApi } from "../api";
+import { gistsReducer } from "./gists";
 import { conversationsReducer } from "./conversations";
 import { messagesReducer } from "./messages";
 import {
@@ -24,6 +26,7 @@ const persistreducer = persistReducer(
    combineReducers({
       profile: profileReducer,
       conversations: conversationsReducer,
+      gists: gistsReducer,
       messages: messagesReducer,
    })
 );
@@ -34,7 +37,7 @@ export const store = createStore(
       applyMiddleware(
          timeScheduler,
          crashReporter,
-         thunk,
+         thunk.withExtraArgument({ getGistsApi, searchGistsByUserNameApi }),
          logger,
          botSendMessage
       ),

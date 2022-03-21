@@ -2,8 +2,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material";
 import React from "react";
-import { ChatPage, ProfilePage, HomePage } from "./pages";
+import { ChatPage, ProfilePage, HomePage, GistsPage } from "./pages";
 // import { TestRoute } from "./components/test-route";
+import { Header } from "./components";
 import "./global.css";
 import { store } from "./store";
 import { Provider } from "react-redux";
@@ -18,6 +19,7 @@ ReactDOM.render(
    <Provider store={store}>
       <BrowserRouter>
          <ThemeProvider theme={light}>
+         <Header />
             <Switch>
                <Route path="/chat">
                   <ChatPage />
@@ -25,6 +27,10 @@ ReactDOM.render(
 
                <Route path="/profile">
                   <ProfilePage />
+               </Route>
+
+               <Route path="/gists">
+                  <GistsPage />
                </Route>
 
                <Route path="/">
