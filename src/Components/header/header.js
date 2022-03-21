@@ -32,6 +32,12 @@ export const Header = () => {
             </ListItemIcon>
             <ListItemText className={styles.text} primary="New Chat" />
          </button>
+         <Link className={styles.headerProf} to="/gists">
+         <ListItemText className={styles.text} primary="Gists" />
+         </Link>
+         <Link className={styles.headerProf} to="/chat">
+            <ListItemText className={styles.text} primary="Chats" />
+         </Link>
       </div>
    );
 };
