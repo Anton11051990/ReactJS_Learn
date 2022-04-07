@@ -1,18 +1,18 @@
 import React from "react";
-import { Route, Switch, Link } from "react-router-dom";
-import "./home.css";
+import { Route, Switch } from "react-router-dom";
+import './home.css';
+
 
 export function HomePage() {
-  return (
-    <Switch>
+return (
+   <Switch>
       <Route path="/">
-        <div className={"home-padge"}>
-          <h1>Домашная страница</h1>
-          <div className={"chat-link"}>
-            <Link to="/chat">-- Чаты --</Link>
-          </div>
-        </div>
+         <div className={"home-padge"}>
+            <h1>Домашная страница</h1>
+         </div>
       </Route>
-    </Switch>
-  );
+   </Switch>
+   
+);
+
 }
